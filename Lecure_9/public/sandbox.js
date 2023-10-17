@@ -1,12 +1,34 @@
 "use strict";
-// Lecture 9 : Type Aliases
-// In order to avoid the duplication in the code and instead of writing things repetadly we can denoote them as aliases
-var my_app = (val) => {
-    return val;
+// Lecture 8: Function Basis
+// defining and writing function greet
+let greet = () => {
+    console.log('hello, world');
 };
-console.log(my_app(5));
-console.log(my_app("fg"));
-const logdetails = (uid, item) => {
-    console.log(`${item} has uid of ${uid}`);
+// As we already defind "greet" as function, we can not assign it to any other data type
+// greet = 'hello';
+// How to define a partcular variable as function 
+let greet_2;
+greet_2 = () => {
+    console.log("Hello World");
 };
-logdetails(123, 'fg');
+// Defining input parameters for function and with optional parameters
+// Use "question mark" to set "optional parameters"
+const add = (a, b, c) => {
+    console.log(a + b);
+    console.log(c);
+};
+add(5, 10);
+// Other way to set optional parameter is with default value
+const add_2 = (a, b, c = 10) => {
+    console.log(a + b);
+    console.log(c);
+};
+add_2(8, 12, "wtf");
+// When we return through the function, typescript automatomatically finds its data type
+// and then we cannot reassign the another data type
+// "result" has data type of number and it can not be changed then.
+const minus = (a, b) => {
+    return a + b;
+};
+let result = minus(10, 7);
+console.log(result);
